@@ -75,8 +75,6 @@
         <span class="text-danger">{{ $errors->first('Logoname') }}</span>
     </div>
 
-
-
     <div class="form-group {{ $errors->has('Logoimage') ? 'has-error' : '' }}">
         {!! Form::label('Logo image:') !!}
         {!! Form::file('Logoimage',  ['class'=>'form-control']) !!}

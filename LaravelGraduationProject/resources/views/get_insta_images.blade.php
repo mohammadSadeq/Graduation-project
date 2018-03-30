@@ -20,8 +20,15 @@ try {
     $collection2 = $db->selectCollection("Wataniyaimages");
 } catch (Exception $e) {
 }
-$response = $collection->drop();
-$response2 = $collection2->drop();
+
+try {
+    $collection3 = $db->selectCollection("NewLogoimages");
+} catch (Exception $e) {
+}
+
+//$response = $collection->drop();
+//$response2 = $collection2->drop();
+$response3 = $collection3->drop();
 
 $instagram = Instagram::withCredentials('htwesam.1996achp_insta', '12345Abc', '/path/to/cache/folder');
 try {
@@ -30,8 +37,9 @@ try {
 } catch (\InstagramScraper\Exception\InstagramException $e) {
 }
 
+/**
 try {
-    $medias = $instagram->getMediasByTag('jawwal', 1900);
+$medias = $instagram->getMediasByTag('jawwal', 1900);
 } catch (\InstagramScraper\Exception\InstagramException $e) {
 }
 for ($x = 0; $x < 1900 ; $x++){
@@ -39,41 +47,41 @@ $media = $medias[$x];
 
 $a=$media->getSquareThumbnailsUrl();
 $document = array(
-                //"url" => $media->getImageHighResolutionUrl() ,
-                // "url"=>$media->getImageThumbnailUrl()
+//"url" => $media->getImageHighResolutionUrl() ,
+// "url"=>$media->getImageThumbnailUrl()
 
-            "url"=>$a[1]
+"url"=>$a[1]
 
-            );
+);
 try {
-            $collection->insert($document);
-        } catch (MongoCursorTimeoutException $e) {
-        } catch (MongoCursorException $e) {
-        } catch (MongoException $e) {
-        }
+$collection->insert($document);
+} catch (MongoCursorTimeoutException $e) {
+} catch (MongoCursorException $e) {
+} catch (MongoException $e) {
+}
 
-        }
+}
 
 
 
-        //***********************************************Wataniya***************************************
+//***********************************************Wataniya***************************************
 
 try {
-    $medias2 = $instagram->getMediasByTag('الوطنية_موبايل', 700);
+$medias2 = $instagram->getMediasByTag('الوطنية_موبايل', 700);
 } catch (\InstagramScraper\Exception\InstagramException $e) {
 }
 for ($x2 = 0; $x2 < 700 ; $x2++){
-    $media2 = $medias2[$x2];
-    $a=$media2->getSquareThumbnailsUrl();
-    $document2 = array(
-        "url"=>$a[1]
-    );
-    try {
-        $collection2->insert($document2);
-    } catch (MongoCursorTimeoutException $e) {
-    } catch (MongoCursorException $e) {
-    } catch (MongoException $e) {
-    }
+$media2 = $medias2[$x2];
+$a=$media2->getSquareThumbnailsUrl();
+$document2 = array(
+"url"=>$a[1]
+);
+try {
+$collection2->insert($document2);
+} catch (MongoCursorTimeoutException $e) {
+} catch (MongoCursorException $e) {
+} catch (MongoException $e) {
+}
 
 }
 
@@ -81,17 +89,48 @@ for ($x2 = 0; $x2 < 700 ; $x2++){
 
 
 try {
-    $medias3 = $instagram->getMediasByTag('wataniya', 1200);
+$medias3 = $instagram->getMediasByTag('wataniya', 1200);
 } catch (\InstagramScraper\Exception\InstagramException $e) {
 }
 for ($x3 = 0; $x3 < 1200 ; $x3++){
+$media3 = $medias3[$x3];
+$a=$media3->getSquareThumbnailsUrl();
+$document3 = array(
+"url"=>$a[1]
+);
+try {
+$collection2->insert($document3);
+} catch (MongoCursorTimeoutException $e) {
+} catch (MongoCursorException $e) {
+} catch (MongoException $e) {
+}
+
+}
+
+ **/
+//******************************************New Logo ***********************************************
+
+
+
+$logo=Session::get('newlogo');
+
+try {
+    $medias3 = $instagram->getMediasByTag($logo, 1000);
+} catch (\InstagramScraper\Exception\InstagramException $e) {
+}
+for ($x3 = 0; $x3 < 1000 ; $x3++){
     $media3 = $medias3[$x3];
+
     $a=$media3->getSquareThumbnailsUrl();
     $document3 = array(
+        //"url" => $media->getImageHighResolutionUrl() ,
+        // "url"=>$media->getImageThumbnailUrl()
+
         "url"=>$a[1]
+
     );
     try {
-        $collection2->insert($document3);
+        $collection3->insert($document3);
     } catch (MongoCursorTimeoutException $e) {
     } catch (MongoCursorException $e) {
     } catch (MongoException $e) {
@@ -99,14 +138,13 @@ for ($x3 = 0; $x3 < 1200 ; $x3++){
 
 }
 
-
-        //*****************************************************************************************************
-
+//***************************************************************************************************
+/**
 $a=0;
 $cursor = $collection->find();
 foreach($cursor as $document){
 
-    $a++;
+$a++;
 }
 
 
@@ -115,8 +153,15 @@ $b=0;
 $cursor2 = $collection2->find();
 foreach($cursor2 as $document2){
 
-    $b++;
+$b++;
+}
 
+ **/
+$c=0;
+$cursor3 = $collection3->find();
+foreach($cursor3 as $document3){
+
+    $c++;
 }
 
 ?>
@@ -168,12 +213,15 @@ foreach($cursor2 as $document2){
 <section id="hero">
     <div class="hero-container">
 
-        <?php echo "<h3>". $a . "  Images have been collected with Hashtag #Jawwal" . "</h3>" ?>
-      <?php echo "<h3>". $b . "  Images have been collected with Hashtag #Wataniya" . "</h3>" ?>
+        <?php //echo "<h3>". $a . "  Images have been collected with Hashtag #Jawwal" . "</h3>" ?>
+        <?php //echo "<h3>". $b . "  Images have been collected with Hashtag #Wataniya" . "</h3>" ?>
+
+
+        <?php echo "<h3>". $c . "  Images have been collected with Hashtag # ". $logo  . "</h3>" ?>
 
         <br>  <br>
         <form  action="insta_logo_exist" method="get" >
-            <button type="submit" class="btn-get-started"> Search images for Jawwal and wataniya logo </button>
+            <button type="submit" class="btn-get-started"> Search images for your logo </button>
         </form>
 
     </div>

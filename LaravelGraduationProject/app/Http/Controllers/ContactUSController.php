@@ -28,6 +28,9 @@ class ContactUSController extends Controller
             'comment' => $request->get('comment')
         );
 
+
+        //return view('get_insta_images', compact('Logoname'));
+
         Mail::send('email',$data,function($message) use ($data)
 
             {
@@ -42,6 +45,10 @@ class ContactUSController extends Controller
 
 
             });
+
+
+    session()->put('newlogo',$data['Logoname']);
+
 
         return back()->with('success', 'Thanks for contacting us .. We will contact you within the coming 24 hours');
     }

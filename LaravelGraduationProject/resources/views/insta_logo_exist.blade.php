@@ -7,13 +7,18 @@ try {
 }
 $db=$connection->ProDB;
 try {
-   $collection1 = $db->selectCollection("Jawwalexist");
+    $collection1 = $db->selectCollection("Jawwalexist");
 } catch (Exception $e) {
 }
 //$response1 = $collection1->drop();
 
 try {
     $collection2 = $db->selectCollection("Wataniyaexist");
+} catch (Exception $e) {
+}
+
+try {
+    $collection3 = $db->selectCollection("NewLogoexist");
 } catch (Exception $e) {
 }
 //$response2 = $collection2->drop();
@@ -25,6 +30,7 @@ echo $output;
 
 $a=0;
 $b=0;
+$c=0;
 $cursor = $collection1->find();
 foreach($cursor as $document){
 
@@ -37,7 +43,11 @@ foreach($cursor as $document){
     $b++;
 }
 
+$cursor = $collection3->find();
+foreach($cursor as $document){
 
+    $c++;
+}
 ?>
 
 
@@ -74,6 +84,11 @@ foreach($cursor as $document){
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
 
+        <?php
+        $logo=Session::get('newlogo');
+        
+        ?>
+
         google.charts.load("current", {packages:['corechart']});
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
@@ -81,6 +96,9 @@ foreach($cursor as $document){
                 ["Element", "Density", { role: "style" } ],
                 ["Jawwal",<?php echo $a;?> , "#51990a"],
                 ["Wataniya", <?php echo $b;?>, "#f20404"],
+
+                [<?php   $logo ;  ?>, <?php echo $c;?>, "#b20404"],
+
 
             ]);
 
@@ -127,19 +145,19 @@ foreach($cursor as $document){
 </header><!-- #header -->
 
 <!--<section id="hero">-->
-    <div class="hero-container" >
+<div class="hero-container" >
 
-      <?php //echo "<h3>". $a . "  Images from the collected images have Jawwal Logo " . "</h3>" ?>
+    <?php //echo "<h3>". $a . "  Images from the collected images have Jawwal Logo " . "</h3>" ?>
 
-        <?php //echo "<h3>". $b . "  Images from the collected images have Wataniya Logo " . "</h3>" ?>
-
-
-
-    </div>
+    <?php //echo "<h3>". $b . "  Images from the collected images have Wataniya Logo " . "</h3>" ?>
 
 
-    <!--Div that will hold the column chart-->
-    <div  id="columnchart_values" style=" margin-right: 400px ;margin-left: 350px; margin-top: 100px"></div>
+
+</div>
+
+
+<!--Div that will hold the column chart-->
+<div  id="columnchart_values" style=" margin-right: 400px ;margin-left: 350px; margin-top: 100px"></div>
 
 
 
@@ -183,7 +201,6 @@ Footer
 
 <!-- Contact Form JavaScript File -->
 <script src="contactform/contactform.js"></script>
-
 
 <!-- Template Main Javascript File -->
 <script src="js/main.js"></script>
