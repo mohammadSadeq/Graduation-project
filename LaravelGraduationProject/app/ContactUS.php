@@ -9,6 +9,6 @@ class ContactUS extends Model
 
     public $table = 'contact';
 
-    public $fillable = ['cname','cemail','LogoName','Logoimage','modelName','comment'];
+    public $fillable = ['cname','cemail','Logoname','Logoimage','modelname','comment'];
 
 }

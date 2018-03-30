@@ -116,7 +116,7 @@ $cursor2 = $collection2->find();
 foreach($cursor2 as $document2){
 
     $b++;
-    
+
 }
 
 ?>
