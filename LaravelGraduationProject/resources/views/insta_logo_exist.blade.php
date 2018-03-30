@@ -86,7 +86,7 @@ foreach($cursor as $document){
 
         <?php
         $logo=Session::get('newlogo');
-        
+
         ?>
 
         google.charts.load("current", {packages:['corechart']});
@@ -94,8 +94,8 @@ foreach($cursor as $document){
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
                 ["Element", "Density", { role: "style" } ],
-                ["Jawwal",<?php echo $a;?> , "#51990a"],
-                ["Wataniya", <?php echo $b;?>, "#f20404"],
+               // ["Jawwal",<?//php echo $a;?> , "#51990a"],
+                //["Wataniya", <?//php echo $b;?>, "#f20404"],
 
                 [<?php   $logo ;  ?>, <?php echo $c;?>, "#b20404"],
 
@@ -111,7 +111,7 @@ foreach($cursor as $document){
                 2]);
 
             var options = {
-                title: "Number of Jawwal and Wataniya images containing Logo",
+                title: "Number of images containing Logo",
                 width: 700,
                 height: 500,
                 bar: {groupWidth: "65%"},
