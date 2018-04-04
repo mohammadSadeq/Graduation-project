@@ -182,12 +182,13 @@ List = data.find()
 
 
 for item in List:
-    url=item["url"]
+    url =item["url" ]
+    time=item["time"]
     im=urlretrieve(url, "DBimages/2.jpg")
-    result = detect_objects('C:/Users/hp/PhpstormProjects/LaravelProject/Demo/DBimages/2.jpg')
+    result = detect_objects('C:/Users/hp/Desktop/project/Graduation-project/LaravelGraduationProject/Demo/DBimages/2.jpg')
     for name, img in result.items() :
       if name == 'wataniya' :
-           ex = {'exist': 'yes'}
+           ex = {'exist': 'yes','time':time}
            data2.insert(ex)
 		    
 

@@ -46,6 +46,15 @@ Route::get('/get_insta_images', function () {
     return view('get_insta_images');
 });
 
+
+Route::get('/Get_tweets', function () {
+    return view('Get_tweets');
+});
+
+Route::get('/gett_tweets', function () {
+    return view('gett_tweets');
+});
+
 Route::get('/logout', 'Auth\LoginController@logout');
 
 

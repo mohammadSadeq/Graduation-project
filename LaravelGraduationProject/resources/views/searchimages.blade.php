@@ -61,8 +61,8 @@
 
       <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
         <div class="box">
-          <div class="icon"><a href="<?php echo url('contactUS') ?>"><i class="fa fa-paper-plane"></i></a></div>
-          <h4 class="title"><a href="{{ url('contactUS')}}">Twitter</a></h4>
+          <div class="icon"><a href="<?php echo url('Get_tweets') ?>"><i class="fa fa-paper-plane"></i></a></div>
+          <h4 class="title"><a href="{{ url('Get_tweets')}}">Twitter</a></h4>
           <p class="description">search for Logo images on Twitter </p>
         </div>
       </div>

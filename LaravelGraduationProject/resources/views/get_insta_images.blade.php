@@ -46,11 +46,13 @@ for ($x = 0; $x < 1900 ; $x++){
 $media = $medias[$x];
 
 $a=$media->getSquareThumbnailsUrl();
+    $b= $media->getCreatedTime();
 $document = array(
 //"url" => $media->getImageHighResolutionUrl() ,
 // "url"=>$media->getImageThumbnailUrl()
 
-"url"=>$a[1]
+"url"=>$a[1],
+    "time"=>$b
 
 );
 try {
@@ -73,8 +75,10 @@ $medias2 = $instagram->getMediasByTag('الوطنية_موبايل', 700);
 for ($x2 = 0; $x2 < 700 ; $x2++){
 $media2 = $medias2[$x2];
 $a=$media2->getSquareThumbnailsUrl();
+    $b= $media2->getCreatedTime();
 $document2 = array(
-"url"=>$a[1]
+"url"=>$a[1],
+    "time"=>$b
 );
 try {
 $collection2->insert($document2);
@@ -95,8 +99,10 @@ $medias3 = $instagram->getMediasByTag('wataniya', 1200);
 for ($x3 = 0; $x3 < 1200 ; $x3++){
 $media3 = $medias3[$x3];
 $a=$media3->getSquareThumbnailsUrl();
+    $b= $media3->getCreatedTime();
 $document3 = array(
-"url"=>$a[1]
+"url"=>$a[1],
+    "time"=>$b
 );
 try {
 $collection2->insert($document3);
@@ -122,11 +128,13 @@ for ($x3 = 0; $x3 < 1000 ; $x3++){
     $media3 = $medias3[$x3];
 
     $a=$media3->getSquareThumbnailsUrl();
+    $b= $media3->getCreatedTime();
     $document3 = array(
         //"url" => $media->getImageHighResolutionUrl() ,
         // "url"=>$media->getImageThumbnailUrl()
 
-        "url"=>$a[1]
+        "url"=>$a[1],
+        "time"=>$b
 
     );
     try {
