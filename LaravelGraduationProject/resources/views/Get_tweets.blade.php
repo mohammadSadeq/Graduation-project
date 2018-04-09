@@ -24,7 +24,7 @@ try {
     $collection = $db->selectCollection("TNewLogoimages");
 } catch (Exception $e) {
 }
-$tweets = $connection->get('https://api.twitter.com/1.1/search/tweets.json', ['count' => 100, 'q' => '#'.$logo , 'filter:images -filter:retweets','include_entities'=>'true']);
+$tweets = $connection->get('https://api.twitter.com/1.1/search/tweets.json', ['count' => 100, 'q' => 'jawwal filter:images -filter:retweets','include_entities'=>'true']);
 
 $collection->drop();
 //if($tweets != null){
@@ -34,7 +34,8 @@ $collection->drop();
 
         if(isset($page->entities->media)){
 
-            //echo '<img src="' . $page->entities->media[0]->media_url .'" height="150" style="float:left"/>'. '<br>';
+            echo '<img src="' . $page->entities->media[0]->media_url .'" height="150" style="float:left"/>'. '<br>';
+            echo "[" . $page->created_at . "]\n";
             $collection->insert($page);
     }
    // }
@@ -120,7 +121,7 @@ foreach($cursor3 as $document3){
 
 
         <br>  <br>
-        <form  action="insta_logo_exist" method="get" >
+        <form  action="twitter_logo_exist" method="get" >
             <button type="submit" class="btn-get-started"> Search images for your logo </button>
         </form>
 

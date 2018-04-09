@@ -29,9 +29,7 @@ Route::get('/get_jawwalandwataniya_images', function () {
 
 
 
-Route::get('/insta_logo_exist', function () {
-    return view('insta_logo_exist');
-});
+
 
 Route::get('/auth/login', function () {
     return view('auth/login');
@@ -46,14 +44,21 @@ Route::get('/get_insta_images', function () {
     return view('get_insta_images');
 });
 
-
+Route::get('/insta_logo_exist', function () {
+    return view('insta_logo_exist');
+});
 Route::get('/Get_tweets', function () {
     return view('Get_tweets');
 });
 
-Route::get('/gett_tweets', function () {
-    return view('gett_tweets');
+Route::get('/twitter_logo_exist', function () {
+    return view('twitter_logo_exist');
 });
+
+Route::get('/new', function () {
+    return view('new');
+});
+
 
 Route::get('/logout', 'Auth\LoginController@logout');
 

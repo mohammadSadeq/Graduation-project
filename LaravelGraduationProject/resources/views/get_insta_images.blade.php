@@ -119,6 +119,7 @@ $collection2->insert($document3);
 
 
 $logo=Session::get('newlogo');
+//echo $logo;
 
 try {
     $medias3 = $instagram->getMediasByTag($logo, 1000);

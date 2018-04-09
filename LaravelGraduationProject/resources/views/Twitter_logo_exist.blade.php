@@ -7,18 +7,18 @@ try {
 }
 $db=$connection->ProDB;
 try {
-    $collection1 = $db->selectCollection("Jawwalexist");
+    $collection1 = $db->selectCollection("TJawwalexist");
 } catch (Exception $e) {
 }
 //$response1 = $collection1->drop();
 
 try {
-    $collection2 = $db->selectCollection("Wataniyaexist");
+    $collection2 = $db->selectCollection("TWataniyaexist");
 } catch (Exception $e) {
 }
 
 try {
-    $collection3 = $db->selectCollection("NewLogoexist");
+    $collection3 = $db->selectCollection("TNewLogoexist");
 } catch (Exception $e) {
 }
 //$response2 = $collection2->drop();
@@ -91,7 +91,7 @@ foreach($cursor as $document){
 
        $d=$document['time'];
         //var_dump($t);
-        $date=date("Y-m-d", $d);
+        $date=date("Y-m-d H:i:s", $d);
         //echo $time;
         $month = date('F', strtotime($date));
         $year = date('Y', strtotime($date));
@@ -120,7 +120,7 @@ foreach($cursor as $document){
 
         $d=$document['time'];
         //var_dump($t);
-        $date=date("Y-m-d", $d);
+        $date=date("Y-m-d H:i:s", $d);
         //echo $time;
         $month = date('F', strtotime($date));
         //echo $month;
@@ -284,248 +284,6 @@ foreach($cursor as $document){
         }
     </script>
 
-
-
-    <!-- Styles -->
-    <style>
-        #chartdiv1 {
-            width	: 100%;
-            height	: 500px;
-        }
-
-    </style>
-    <style>
-        #chartdiv2 {
-            width	: 100%;
-            height	: 500px;
-        }
-
-    </style>
-
-    <!-- Resources -->
-    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
-    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-    <script>
-        var chart = AmCharts.makeChart("chartdiv1", {
-            "type": "serial",
-            "theme": "light",
-            "marginRight": 40,
-            "marginLeft": 40,
-            "autoMarginOffset": 20,
-            "mouseWheelZoomEnabled":true,
-            "dataDateFormat": "YYYY-MM-DD",
-            "valueAxes": [{
-                "id": "v1",
-                "axisAlpha": 0,
-                "position": "left",
-                "ignoreAxisWidth":true
-            }],
-            "balloon": {
-                "borderThickness": 1,
-                "shadowAlpha": 0
-            },
-            "graphs": [{
-                "id": "g1",
-                "balloon":{
-                    "drop":true,
-                    "adjustBorderColor":false,
-                    "color":"#51990a"
-                },
-                "bullet": "round",
-                "bulletBorderAlpha": 1,
-                "bulletColor": "#FFFFFF",
-                "bulletSize": 5,
-                "hideBulletsCount": 50,
-                "lineThickness": 2,
-                "title": "red line",
-                "useLineColorForBulletBorder": true,
-                "valueField": "value",
-                "balloonText": "<span style='font-size:18px;'>[[value]]</span>"
-            }],
-            "chartScrollbar": {
-                "graph": "g1",
-                "oppositeAxis":false,
-                "offset":30,
-                "scrollbarHeight": 80,
-                "backgroundAlpha": 0,
-                "selectedBackgroundAlpha": 0.1,
-                "selectedBackgroundColor": "#888888",
-                "graphFillAlpha": 0,
-                "graphLineAlpha": 0.5,
-                "selectedGraphFillAlpha": 0,
-                "selectedGraphLineAlpha": 1,
-                "autoGridCount":true,
-                "color":"#AAAAAA"
-            },
-            "chartCursor": {
-                "pan": true,
-                "valueLineEnabled": true,
-                "valueLineBalloonEnabled": true,
-                "cursorAlpha":1,
-                "cursorColor":"#51990a",
-                "limitToGraph":"g1",
-                "valueLineAlpha":0.2,
-                "valueZoomable":true
-            },
-            "valueScrollbar":{
-                "oppositeAxis":false,
-                "offset":50,
-                "scrollbarHeight":10
-            },
-            "categoryField": "date",
-            "categoryAxis": {
-                "parseDates": true,
-                "dashLength": 1,
-                "minorGridEnabled": true
-            },
-            "export": {
-                "enabled": true
-            },
-            "dataProvider": [
-                <?php
-
-                echo ' {"date": "2018-01", "value":'.$a1.' } ,
-                       {"date": "2018-02", "value":'.$a2.' } ,
-                       {"date": "2018-03", "value":'.$a3.' } ,
-                       {"date": "2018-04", "value":'.$a4.' } ,
-                       {"date": "2018-05", "value":'.$a5.' } ,
-                       {"date": "2018-06", "value":'.$a6.' } ,
-                       {"date": "2018-07", "value":'.$a7.' } ,
-                       {"date": "2018-08", "value":'.$a8.' } ,
-                       {"date": "2018-09", "value":'.$a9.' } ,
-                       {"date": "2018-10", "value":'.$a10.' } ,
-                       {"date": "2018-11", "value":'.$a11.' } ,
-                       {"date": "2018-12", "value":'.$a12.' } ,
-
-
-                '
-
-                ?>
-            ]
-        });
-
-        chart.addListener("rendered", zoomChart);
-
-        zoomChart();
-
-        function zoomChart() {
-            chart.zoomToIndexes(chart.dataProvider.length - 40, chart.dataProvider.length - 1);
-        }
-    </script>
-
-    <script>
-        var chart = AmCharts.makeChart("chartdiv2", {
-            "type": "serial",
-            "theme": "light",
-            "marginRight": 40,
-            "marginLeft": 40,
-            "autoMarginOffset": 20,
-            "mouseWheelZoomEnabled":true,
-            "dataDateFormat": "YYYY-MM-DD",
-            "valueAxes": [{
-                "id": "v1",
-                "axisAlpha": 0,
-                "position": "left",
-                "ignoreAxisWidth":true
-            }],
-            "balloon": {
-                "borderThickness": 1,
-                "shadowAlpha": 0
-            },
-            "graphs": [{
-                "id": "g1",
-                "balloon":{
-                    "drop":true,
-                    "adjustBorderColor":false,
-                    "color":"#f20404"
-                },
-                "bullet": "round",
-                "bulletBorderAlpha": 1,
-                "bulletColor": "#FFFFFF",
-                "bulletSize": 5,
-                "hideBulletsCount": 50,
-                "lineThickness": 2,
-                "title": "red line",
-                "useLineColorForBulletBorder": true,
-                "valueField": "value",
-                "balloonText": "<span style='font-size:18px;'>[[value]]</span>"
-            }],
-            "chartScrollbar": {
-                "graph": "g1",
-                "oppositeAxis":false,
-                "offset":30,
-                "scrollbarHeight": 80,
-                "backgroundAlpha": 0,
-                "selectedBackgroundAlpha": 0.1,
-                "selectedBackgroundColor": "#888888",
-                "graphFillAlpha": 0,
-                "graphLineAlpha": 0.5,
-                "selectedGraphFillAlpha": 0,
-                "selectedGraphLineAlpha": 1,
-                "autoGridCount":true,
-                "color":"#AAAAAA"
-            },
-            "chartCursor": {
-                "pan": true,
-                "valueLineEnabled": true,
-                "valueLineBalloonEnabled": true,
-                "cursorAlpha":1,
-                "cursorColor":"#f20404",
-                "limitToGraph":"g1",
-                "valueLineAlpha":0.2,
-                "valueZoomable":true
-            },
-            "valueScrollbar":{
-                "oppositeAxis":false,
-                "offset":50,
-                "scrollbarHeight":10
-            },
-            "categoryField": "date",
-            "categoryAxis": {
-                "parseDates": true,
-                "dashLength": 1,
-                "minorGridEnabled": true
-            },
-            "export": {
-                "enabled": true
-            },
-            "dataProvider": [
-                <?php
-
-                echo ' {"date": "2018-01", "value":'.$b1.' } ,
-                       {"date": "2018-02", "value":'.$b2.' } ,
-                       {"date": "2018-03", "value":'.$b3.' } ,
-                       {"date": "2018-04", "value":'.$b4.' } ,
-                       {"date": "2018-05", "value":'.$b5.' } ,
-                       {"date": "2018-06", "value":'.$b6.' } ,
-                       {"date": "2018-07", "value":'.$b7.' } ,
-                       {"date": "2018-08", "value":'.$b8.' } ,
-                       {"date": "2018-09", "value":'.$b9.' } ,
-                       {"date": "2018-10", "value":'.$b10.' } ,
-                       {"date": "2018-11", "value":'.$b11.' } ,
-                       {"date": "2018-12", "value":'.$b12.' } ,
-
-
-                '
-
-                ?>
-            ]
-        });
-
-        chart.addListener("rendered", zoomChart);
-
-        zoomChart();
-
-        function zoomChart() {
-            chart.zoomToIndexes(chart.dataProvider.length - 40, chart.dataProvider.length - 1);
-        }
-    </script>
-
-
-
 </head>
 <body style="background-color:#fff">
 
@@ -567,8 +325,7 @@ foreach($cursor as $document){
 
 <!--</section>--><!-- #hero -->
 
-<div id="chartdiv1"></div>
-<div id="chartdiv2"></div>
+
 
 <!--==========================
 Footer
