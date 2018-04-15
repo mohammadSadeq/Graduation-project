@@ -157,7 +157,7 @@ foreach($cursor as $document){
                 ["Jawwal",<?php echo $a;?> , "#51990a"],
                 ["Wataniya", <?php echo $b;?>, "#f20404"],
 
-                [<?php   //$logo ;  ?>, <?php //echo $c;?>, "#b20404"],
+                [<?php   //echo $logo ;  ?>, <?php //echo $c;?>, "#b20404"],
 
 
             ]);
@@ -387,18 +387,18 @@ foreach($cursor as $document){
             "dataProvider": [
                 <?php
 
-                echo ' {"date": "2018-01", "value":'.$a1.' } ,
-                       {"date": "2018-02", "value":'.$a2.' } ,
-                       {"date": "2018-03", "value":'.$a3.' } ,
-                       {"date": "2018-04", "value":'.$a4.' } ,
-                       {"date": "2018-05", "value":'.$a5.' } ,
-                       {"date": "2018-06", "value":'.$a6.' } ,
-                       {"date": "2018-07", "value":'.$a7.' } ,
-                       {"date": "2018-08", "value":'.$a8.' } ,
-                       {"date": "2018-09", "value":'.$a9.' } ,
-                       {"date": "2018-10", "value":'.$a10.' } ,
-                       {"date": "2018-11", "value":'.$a11.' } ,
-                       {"date": "2018-12", "value":'.$a12.' } ,
+                echo ' {"date": "2017-01", "value":'.$a1.' } ,
+                       {"date": "2017-02", "value":'.$a2.' } ,
+                       {"date": "2017-03", "value":'.$a3.' } ,
+                       {"date": "2017-04", "value":'.$a4.' } ,
+                       {"date": "2017-05", "value":'.$a5.' } ,
+                       {"date": "2017-06", "value":'.$a6.' } ,
+                       {"date": "2017-07", "value":'.$a7.' } ,
+                       {"date": "2017-08", "value":'.$a8.' } ,
+                       {"date": "2017-09", "value":'.$a9.' } ,
+                       {"date": "2017-10", "value":'.$a10.' } ,
+                       {"date": "2017-11", "value":'.$a11.' } ,
+                       {"date": "2017-12", "value":'.$a12.' } ,
 
 
                 '
@@ -495,18 +495,18 @@ foreach($cursor as $document){
             "dataProvider": [
                 <?php
 
-                echo ' {"date": "2018-01", "value":'.$b1.' } ,
-                       {"date": "2018-02", "value":'.$b2.' } ,
-                       {"date": "2018-03", "value":'.$b3.' } ,
-                       {"date": "2018-04", "value":'.$b4.' } ,
-                       {"date": "2018-05", "value":'.$b5.' } ,
-                       {"date": "2018-06", "value":'.$b6.' } ,
-                       {"date": "2018-07", "value":'.$b7.' } ,
-                       {"date": "2018-08", "value":'.$b8.' } ,
-                       {"date": "2018-09", "value":'.$b9.' } ,
-                       {"date": "2018-10", "value":'.$b10.' } ,
-                       {"date": "2018-11", "value":'.$b11.' } ,
-                       {"date": "2018-12", "value":'.$b12.' } ,
+                echo ' {"date": "2017-01", "value":'.$b1.' } ,
+                       {"date": "2017-02", "value":'.$b2.' } ,
+                       {"date": "2017-03", "value":'.$b3.' } ,
+                       {"date": "2017-04", "value":'.$b4.' } ,
+                       {"date": "2017-05", "value":'.$b5.' } ,
+                       {"date": "2017-06", "value":'.$b6.' } ,
+                       {"date": "2017-07", "value":'.$b7.' } ,
+                       {"date": "2017-08", "value":'.$b8.' } ,
+                       {"date": "2017-09", "value":'.$b9.' } ,
+                       {"date": "2017-10", "value":'.$b10.' } ,
+                       {"date": "2017-11", "value":'.$b11.' } ,
+                       {"date": "2017-12", "value":'.$b12.' } ,
 
 
                 '

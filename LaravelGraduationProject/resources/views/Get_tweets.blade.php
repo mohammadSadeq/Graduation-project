@@ -24,7 +24,7 @@ try {
     $collection = $db->selectCollection("TNewLogoimages");
 } catch (Exception $e) {
 }
-$tweets = $connection->get('https://api.twitter.com/1.1/search/tweets.json', ['count' => 100, 'q' => 'jawwal filter:images -filter:retweets','include_entities'=>'true']);
+$tweets = $connection->get('https://api.twitter.com/1.1/search/tweets.json', ['count' => 100, 'q' => ''.$logo.'  filter:images -filter:retweets','include_entities'=>'true']);
 
 $collection->drop();
 //if($tweets != null){
