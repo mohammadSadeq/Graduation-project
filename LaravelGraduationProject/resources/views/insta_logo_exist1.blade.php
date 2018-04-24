@@ -542,7 +542,7 @@ foreach($cursor as $document){
         <nav id="nav-menu-container">
             <ul class="nav-menu">
                 <li class="menu-active" ><a style="color: #333;" href="{{ url('home')}}">Home</a></li>
-                <li class="menu-active"><a style="color: #333;" href="{{ url('searchimages')}}">Back</a></li>
+                <li class="menu-active"><a style="color: #333;" href="{{ url('get_instagram_images')}}">Back</a></li>
                 <li><a style="color: #333;" href="{{ url('logout') }}">Logout</a></li>
 
             </ul>
@@ -570,10 +570,10 @@ foreach($cursor as $document){
 
 
 <!--</section>--><!-- #hero -->
-
+<!--
 <div id="chartdiv1"></div>
 <div id="chartdiv2"></div>
-
+-->
 <!--==========================
 Footer
 ============================-->

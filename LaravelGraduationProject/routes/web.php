@@ -23,11 +23,6 @@ Route::get('/searchimages', function () {
     return view('searchimages');
 });
 
-Route::get('/get_jawwalandwataniya_images', function () {
-    return view('get_jawwalandwataniya_images');
-});
-
-
 
 
 
@@ -61,9 +56,14 @@ Route::get('/get_instagram_images', function () {
     return view('get_instagram_images');
 });
 
-Route::get('/insta_logo_exist', function () {
-    return view('insta_logo_exist');
+Route::get('/insta_logo_exist1', function () {
+    return view('insta_logo_exist1');
 });
+
+Route::get('/insta_logo_exist2', function () {
+    return view('insta_logo_exist2');
+});
+
 Route::get('/Get_tweets', function () {
     return view('Get_tweets');
 });
