@@ -825,19 +825,19 @@ class Instagram
             $cookies = static::parseCookies($response->headers['Set-Cookie']);
             $this->userSession['csrftoken'] = $cookies['csrftoken'];
             $arr = json_decode($response->raw_body, true, 512, JSON_BIGINT_AS_STRING);
-            $nodes = $arr['location']['media']['nodes'];
+            $nodes = $arr['graphql']['location']['edge_location_to_media']['edges'];
             foreach ($nodes as $mediaArray) {
                 if ($index === $quantity) {
                     return $medias;
                 }
-                $medias[] = Media::create($mediaArray);
+                $medias[] = Media::create($mediaArray['node']);
                 $index++;
             }
             if (empty($nodes)) {
                 return $medias;
             }
-            $hasNext = $arr['location']['media']['page_info']['has_next_page'];
-            $offset = $arr['location']['media']['page_info']['end_cursor'];
+            //$hasNext = $arr['graphql']['edge_location_to_media']['page_info']['has_next_page'];
+            //$offset = $arr['graphql']['edge_location_to_media']['page_info']['end_cursor'];
         }
         return $medias;
     }

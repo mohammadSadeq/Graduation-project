@@ -40,8 +40,25 @@ Route::get('/contactUS', function () {
     return view('contactUS');
 });
 
-Route::get('/get_insta_images', function () {
-    return view('get_insta_images');
+Route::get('/get_hashtaginsta_images', function () {
+    return view('get_hashtaginsta_images');
+});
+
+Route::get('/get_locationinsta_images', function () {
+    return view('get_locationinsta_images');
+});
+
+Route::get('/cities', function () {
+    return view('cities');
+});
+
+
+Route::get('/insta_map', function () {
+    return view('insta_map');
+});
+
+Route::get('/get_instagram_images', function () {
+    return view('get_instagram_images');
 });
 
 Route::get('/insta_logo_exist', function () {

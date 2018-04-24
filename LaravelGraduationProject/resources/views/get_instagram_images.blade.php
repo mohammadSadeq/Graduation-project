@@ -1,77 +1,5 @@
-<?php
-
-include "twitteroauth/twitteroauth.php";
-$consumer_key = "W40MRUBE4sE2F0kk8CuNdjdOI";
-$consumer_secret = "UbhQzECTfd10w7zwUcuU1xnxYta7DVLb08kCjwYh5YUygMQIXo";
-$access_token = "958672155545427968-cXRxFccuZSMCThJvOSwOmfBEfCaL23D";
-$access_token_secret = "fVbzf0xKXs2HiADVjH41om69rdeADnKUULNH0T0e4Po88";
-$connection = new TwitterOAuth($consumer_key,$consumer_secret,$access_token,$access_token_secret);
-//$tweets =$connection->get('https://api.twitter.com/1.1/search/tweets.json?q=jawwal&result_type=recent', ['count' => 200, 'exclude_replies' => true, 'include_rts' => false]);
-
-set_time_limit(0);
-$totalTweets[]=null;
-$user = $connection->get("account/verify_credentials");
-
-//$logo=Session::get('newlogo');
-$id= \Auth::user()->id;
-$logo = DB::table('contact')
-    ->where('id', $id)
-    ->value('logoname');
-try {
-
-    $connection1 = new MongoClient();
-} catch (MongoConnectionException $e) {
-}
-
-$db=$connection1->ProDB;
-try {
-    $collection = $db->selectCollection("TNewLogoimages");
-} catch (Exception $e) {
-}
-$tweets = $connection->get('https://api.twitter.com/1.1/search/tweets.json', ['count' => 100, 'q' => ''.$logo.'  filter:images -filter:retweets','include_entities'=>'true']);
-
-$collection->drop();
-//if($tweets != null){
 
 
-    foreach ($tweets->statuses as $page) {
-
-        if(isset($page->entities->media)){
-
-           // echo '<img src="' . $page->entities->media[0]->media_url .'" height="150" style="float:left"/>'. '<br>';
-           // echo "[" . $page->created_at . "]\n";
-            $collection->insert($page);
-    }
-   // }
-/**
-for ($count = 100; $count < 4000; $count += 100) {
-
-    $max = $tweets->statuses[count ($tweets->statuses)-1]->id_str;
-    //echo($max);
-        $tweets = $connection->get('https://api.twitter.com/1.1/search/tweets.json', ['count' => 100,'max_id'=>$max, 'q' => $logo]);
-
-// printing recent tweets on screen
-foreach ($tweets->statuses as $page1) {
-
-    if(isset($page1->entities->media)){
-
-        //echo '<img src="' . $page->entities->media[0]->media_url .'" height="150" style="float:left"/>'. '<br>';}
-    $collection->insert($page1);
-}
-}
-
-}
-**/
-}
-$c=0;
-$cursor3 = $collection->find();
-foreach($cursor3 as $document3){
-
-    $c++;
-}
-
-
-?>
 
         <!DOCTYPE html>
 <html lang="en">
@@ -119,14 +47,15 @@ foreach($cursor3 as $document3){
 <section id="hero">
     <div class="hero-container">
 
-        <?php //echo "<h3>". $a . "  Images have been collected with Hashtag #Jawwal" . "</h3>" ?>
-        <?php echo "<h3>". $c . "  Images have been collected with Hashtag ". $logo  . "</h3>" ?>
-
-
 
         <br>  <br>
-        <form  action="twitter_logo_exist" method="get" >
-            <button type="submit" class="btn-get-started"> Search images for your logo </button>
+        <form  action="get_hashtaginsta_images" method="get" >
+            <button type="submit" class="btn-get-started"> Search images for your logo By Hashtag </button>
+        </form>
+
+        <br>  <br>
+        <form  action="cities" method="get" >
+            <button type="submit" class="btn-get-started"> Search images for your logo By Location </button>
         </form>
 
     </div>
@@ -174,3 +103,4 @@ Footer
 <script src="js/main.js"></script>
 </body>
 </html>
+

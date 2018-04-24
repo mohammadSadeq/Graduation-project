@@ -11,24 +11,8 @@ try {
 } catch (MongoConnectionException $e) {
 }
 $db=$connection->ProDB;
-try {
-    $collection = $db->selectCollection("Jawwalimages");
-} catch (Exception $e) {
-}
 
-try {
-    $collection2 = $db->selectCollection("Wataniyaimages");
-} catch (Exception $e) {
-}
 
-try {
-    $collection3 = $db->selectCollection("NewLogoimages");
-} catch (Exception $e) {
-}
-
-//$response = $collection->drop();
-//$response2 = $collection2->drop();
-$response3 = $collection3->drop();
 
 $instagram = Instagram::withCredentials('htwesam.1996achp_insta', '12345Abc', '/path/to/cache/folder');
 try {
@@ -37,141 +21,74 @@ try {
 } catch (\InstagramScraper\Exception\InstagramException $e) {
 }
 
-/**
-try {
-$medias = $instagram->getMediasByTag('jawwal', 1900);
-} catch (\InstagramScraper\Exception\InstagramException $e) {
-}
-for ($x = 0; $x < 1900 ; $x++){
-$media = $medias[$x];
 
-$a=$media->getSquareThumbnailsUrl();
-    $b= $media->getCreatedTime();
-$document = array(
-//"url" => $media->getImageHighResolutionUrl() ,
-// "url"=>$media->getImageThumbnailUrl()
-
-"url"=>$a[1],
-    "time"=>$b
-
-);
-try {
-$collection->insert($document);
-} catch (MongoCursorTimeoutException $e) {
-} catch (MongoCursorException $e) {
-} catch (MongoException $e) {
-}
-
-}
-
-
-
-//***********************************************Wataniya***************************************
-
-try {
-$medias2 = $instagram->getMediasByTag('الوطنية_موبايل', 700);
-} catch (\InstagramScraper\Exception\InstagramException $e) {
-}
-for ($x2 = 0; $x2 < 700 ; $x2++){
-$media2 = $medias2[$x2];
-$a=$media2->getSquareThumbnailsUrl();
-    $b= $media2->getCreatedTime();
-$document2 = array(
-"url"=>$a[1],
-    "time"=>$b
-);
-try {
-$collection2->insert($document2);
-} catch (MongoCursorTimeoutException $e) {
-} catch (MongoCursorException $e) {
-} catch (MongoException $e) {
-}
-
-}
-
-
-
-
-try {
-$medias3 = $instagram->getMediasByTag('wataniya', 1200);
-} catch (\InstagramScraper\Exception\InstagramException $e) {
-}
-for ($x3 = 0; $x3 < 1200 ; $x3++){
-$media3 = $medias3[$x3];
-$a=$media3->getSquareThumbnailsUrl();
-    $b= $media3->getCreatedTime();
-$document3 = array(
-"url"=>$a[1],
-    "time"=>$b
-);
-try {
-$collection2->insert($document3);
-} catch (MongoCursorTimeoutException $e) {
-} catch (MongoCursorException $e) {
-} catch (MongoException $e) {
-}
-
-}
-
- **/
 //******************************************New Logo ***********************************************
 
+$city='';
 
 
-$logo=Session::get('newlogo');
-//echo $logo;
+foreach($_GET['city'] as $item){
+   // echo $item;
+    switch ($item) {
+        case 282615:
+            $city='Nablus';
+            break;
+        case 282239:
+            $city='Ramallah';
+            break;
+        case 281184:
+            $city='Jerusalem';
+            break;
+        case 284315:
+            $city='Bethlehem';
+            break;
+        case 282476:
+            $city='Jenin';
+            break;
+        case 281577:
+            $city='Tulkarm';
+            break;
+
+        case 285066:
+            $city='Hebron';
+            break;
+        case 281581:
+            $city='Tubas';
+            break;
+        case 281124:
+            $city='Gaza';
+            break;
+        default:
+    }
+
+    $collection=$db->selectCollection("insta".$city."images");
+    $response = $collection->drop();
 
 try {
-    $medias3 = $instagram->getMediasByTag($logo, 1000);
+    $medias4 = $instagram->getMediasByLocationId($item, 100, 1);
 } catch (\InstagramScraper\Exception\InstagramException $e) {
 }
-for ($x3 = 0; $x3 < 1000 ; $x3++){
-    $media3 = $medias3[$x3];
 
-    $a=$media3->getSquareThumbnailsUrl();
-    $b= $media3->getCreatedTime();
-    $document3 = array(
-        //"url" => $media->getImageHighResolutionUrl() ,
-        // "url"=>$media->getImageThumbnailUrl()
+for ($x4 = 0; $x4 < 100 ; $x4++){
+    $media4 = $medias4[$x4];
 
+    $a=$media4->getSquareThumbnailsUrl();
+    $document4 = array(
         "url"=>$a[1],
-        "time"=>$b
-
     );
     try {
-        $collection3->insert($document3);
+        $collection->insert($document4);
     } catch (MongoCursorTimeoutException $e) {
     } catch (MongoCursorException $e) {
     } catch (MongoException $e) {
     }
 
 }
+}
+
 
 //***************************************************************************************************
-/**
-$a=0;
-$cursor = $collection->find();
-foreach($cursor as $document){
 
-$a++;
-}
-
-
-
-$b=0;
-$cursor2 = $collection2->find();
-foreach($cursor2 as $document2){
-
-$b++;
-}
-
- **/
-$c=0;
-$cursor3 = $collection3->find();
-foreach($cursor3 as $document3){
-
-    $c++;
-}
 
 ?>
 
@@ -211,7 +128,7 @@ foreach($cursor3 as $document3){
         <nav id="nav-menu-container">
             <ul class="nav-menu">
                 <li class="menu-active"><a href="{{ url('home')}}">Home</a></li>
-                <li class="menu-active"><a href="{{ url('searchimages')}}">Back</a></li>
+                <li class="menu-active"><a href="{{ url('cities')}}">Back</a></li>
                 <li><a href="{{ url('logout') }}">Logout</a></li>
 
             </ul>
@@ -222,15 +139,48 @@ foreach($cursor3 as $document3){
 <section id="hero">
     <div class="hero-container">
 
-        <?php //echo "<h3>". $a . "  Images have been collected with Hashtag #Jawwal" . "</h3>" ?>
-        <?php //echo "<h3>". $b . "  Images have been collected with Hashtag #Wataniya" . "</h3>" ?>
 
+        <?php
 
-        <?php echo "<h3>". $c . "  Images have been collected with Hashtag # ". $logo  . "</h3>" ?>
+        foreach($_GET['city'] as $item){
+            switch ($item) {
+                case 282615:
+                    $city='Nablus';
+                    break;
+                case 282239:
+                    $city='Ramallah';
+                    break;
+                case 281184:
+                    $city='Jerusalem';
+                    break;
+                case 284315:
+                    $city='Bethlehem';
+                    break;
+                case 282476:
+                    $city='Jenin';
+                    break;
+                case 281577:
+                    $city='Tulkarm';
+                    break;
+
+                case 285066:
+                    $city='Hebron';
+                    break;
+                case 281581:
+                    $city='Tubas';
+                    break;
+                case 281124:
+                    $city='Gaza';
+                    break;
+                default:
+            }
+        echo "<h3>  Images have been collected from " .$city." city </h3>"."\n" ;
+        }
+        ?>
 
         <br>  <br>
-        <form  action="insta_logo_exist" method="get" >
-            <button type="submit" class="btn-get-started"> Search images for your logo </button>
+        <form  action="insta_map" method="get" >
+            <button type="submit" class="btn-get-started">   your logo on map </button>
         </form>
 
     </div>

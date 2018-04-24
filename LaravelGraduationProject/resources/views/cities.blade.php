@@ -33,6 +33,8 @@
     <nav id="nav-menu-container">
       <ul class="nav-menu">
         <li class="menu-active"><a style="color: #333;" href="{{ url('home')}}">Home</a></li>
+
+        <li class="menu-active"><a style="color: #333;" href="{{ url('get_instagram_images')}}">Back</a></li>
         <li><a  style="color: #333;"href="{{ url('logout') }}">Logout</a></li>
 
       </ul>
@@ -40,50 +42,49 @@
   </div>
 </header><!-- #header -->
 
-<br> <br>
-<section id="services">
-  <div class="container wow fadeIn" style="margin-left: 300px">
-    <div class="section-header">
-      <h3 class="section-title" style="text-transform: none; margin-right: 350px">Find Your Logo On Social Media</h3>
-      <br><br>
-    </div>
-    <br>
-    <div class="row" >
 
 
-      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-        <div class="box">
-          <div class="icon"><a href="<?php echo url('get_instagram_images') ?>"><i class="fa fa-paper-plane"></i></a></div>
-          <h4 class="title"><a href="{{ url('get_instagram_images')}}">Instagram</a></h4>
-          <p class="description">search for Logo images on Instagram </p>
+
+
+<section id="contact">
+    <div class="container wow fadeInUp">
+        <div class="section-header"> <br> <br>
+            <h3 class="section-title">Where do you want to serarch for your logo ?</h3>
         </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-        <div class="box">
-          <div class="icon"><a href="<?php echo url('Get_tweets') ?>"><i class="fa fa-bar-chart"></i></a></div>
-          <h4 class="title"><a href="{{ url('Get_tweets')}}">Twitter</a></h4>
-          <p class="description">search for Logo images on Twitter </p>
-        </div>
-      </div>
-
-
-    </div>
-    <div class="row">
-      <div class="col-lg-8 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-        <div class="box">
-          <div class="icon"><a href="<?php echo url('start_stream') ?>"><i class="fa fa-desktop"></i></a></div>
-          <h4 class="title"><a href="{{ url('start_stream')}}">Twitter</a></h4>
-          <p class="description">start the stream search for Logo images on Twitter </p>
-        </div>
-      </div>
     </div>
 
-  </div>
-</section><!-- #services -->
+<br><br>
 
+    <div class="container wow fadeInUp">
+        <div class="row justify-content-center">
 
+            <div class="col-lg-3 col-md-6">
 
+            </div>
+
+            <div class="col-lg-5 col-md-8">
+                <div class="form">
+
+                    <form action="/get_locationinsta_images" method="GET" >
+
+                        <input type="checkbox" name="city[0]" value="282615" > Nablus<br>
+                        <input type="checkbox" name="city[1]" value="282239" > Ramallah <br>
+                        <input type="checkbox" name="city[2]" value="281184" > Jerusalem <br>
+                        <input type="checkbox" name="city[3]" value="284315" > Bethlehem <br>
+                        <input type="checkbox" name="city[4]" value="282476" > Jenin <br>
+                        <input type="checkbox" name="city[5]" value="281577" > Tulkarm <br>
+                        <input type="checkbox" name="city[6]" value="285066" > Hebron <br>
+                        <input type="checkbox" name="city[7]" value="281581" > Tubas <br>
+                        <input type="checkbox" name="city[8]" value="281124" > Gaza <br><br><br>
+                        <div ><button type="submit">Search for logo in instagram </button></div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- #contact -->
 
 <!--==========================
 Footer
