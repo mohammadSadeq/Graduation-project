@@ -248,12 +248,12 @@ foreach($cursor4 as $document4){
 
         <br>  <br>
         <form  action="insta_logo_exist1" method="get" >
-            <button type="submit" class="btn-get-started"> Search images for your logo .. view the result in columns chart </button>
+            <button type="submit" class="btn-get-started"> Search images for your logo .. view the result in par chart </button>
         </form>
 
             <br>  <br>
             <form  action="insta_logo_exist2" method="get" >
-                <button type="submit" class="btn-get-started"> Search images for your logo .. view the result in graph chart </button>
+                <button type="submit" class="btn-get-started"> Search images for your logo .. view the result as graph  </button>
             </form>
 
     </div>

@@ -101,7 +101,7 @@
 		 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
             <div class="box">
               <div class="icon"><a href="http://localhost:5005/"><i class="fa fa-bar-chart"></i></a></div>
-              <h4 class="title"><a href="http://localhost:5005/">Live Demo Foe the training Model</a></h4><p class="description"> upload a photo to check if it contains logo or not</p> </div>
+              <h4 class="title"><a href="http://localhost:5005/">Live Demo For the training Model</a></h4><p class="description"> upload a photo to check if it contains logo or not</p> </div>
 			  
 		
 			  
@@ -111,12 +111,18 @@
             <div class="box">
               <div class="icon"><a href="<?php echo url('searchimages') ?>" ><i class="fa fa-desktop"></i></a></div>
               <h4 class="title"><a href="{{ url('searchimages')}}" >Social Media</a></h4>
-              <p class="description"> Search Instagram for images with specific tag to search for logo <p></div>
+              <p class="description"> Search Social Media for images with specific tag to search for logo <p></div>
           </div>
-         
 
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+          </div>
 
-
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="box">
+              <div class="icon"><a href="<?php echo url('report') ?>" ><i class="fa fa-desktop"></i></a></div>
+              <h4 class="title"><a href="{{ url('report')}}" > Generate your report </a></h4>
+              <p class="description"> Generate a report containing the information gathered by this application  <p></div>
+          </div>
 
 
  

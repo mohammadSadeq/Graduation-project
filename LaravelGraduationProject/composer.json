@@ -10,6 +10,7 @@
         "alcaeus/mongo-php-adapter": "^1.1",
         "barryvdh/laravel-ide-helper": "^2.1",
         "caouecs/laravel4-lang": "3.0.43",
+        "geekcom/phpjasper": "^2.7",
         "j7mbo/twitter-api-php": "^1.0",
         "laracasts/flash": "^3.0",
         "laravel/framework": "5.4.*",

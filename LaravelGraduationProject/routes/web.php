@@ -60,6 +60,12 @@ Route::get('/insta_logo_exist1', function () {
     return view('insta_logo_exist1');
 });
 
+Route::get('/report', function () {
+    return view('report');
+});
+
+
+
 Route::get('/insta_logo_exist2', function () {
     return view('insta_logo_exist2');
 });
