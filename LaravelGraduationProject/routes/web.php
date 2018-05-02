@@ -64,6 +64,10 @@ Route::get('/report', function () {
     return view('report');
 });
 
+Route::get('/vendor/geekcom/phpjasper/examples/My_Report.pdf', function () {
+    return view('vendor/geekcom/phpjasper/examples/My_Report.pdf');
+});
+
 
 
 Route::get('/insta_logo_exist2', function () {

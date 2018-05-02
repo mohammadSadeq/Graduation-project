@@ -1449,10 +1449,35 @@ foreach($cursor as $document){
     </div>
 </div>
 
+<div class="container wow fadeInUp">
+    <div class="section-header"> <br> <br>
+        <h4>Jawwal Logo in 2014</h4>
+    </div>
+</div>
 <div id="chartdiv1" style="width:100% ;height:500px"></div>
+<div class="container wow fadeInUp">
+    <div class="section-header"> <br> <br>
+        <h4>Jawwal Logo in 2014in 2015</h4>
+    </div>
+</div>
 <div id="chartdiv2" style="width:100% ;height:500px"></div>
+<div class="container wow fadeInUp">
+    <div class="section-header"> <br> <br>
+        <h4>Jawwal Logo in 2016 </h4>
+    </div>
+</div>
 <div id="chartdiv3" style="width:100% ;height:500px"></div>
+<div class="container wow fadeInUp">
+    <div class="section-header"> <br> <br>
+        <h4>Jawwal Logo in 2017 </h4>
+    </div>
+</div>
 <div id="chartdiv4" style="width:100% ;height:500px"></div>
+<div class="container wow fadeInUp">
+    <div class="section-header"> <br> <br>
+        <h4>Jawwal Logo in 2018 </h4>
+    </div>
+</div>
 <div id="chartdiv5" style="width:100% ;height:500px"></div>
 
 
@@ -1462,10 +1487,37 @@ foreach($cursor as $document){
         <h4>Wataniya Logo on the last 5 years  </h4>
     </div>
 </div>
+
+
+<div class="container wow fadeInUp">
+    <div class="section-header"> <br> <br>
+        <h4>Wataniya Logo in 2014 </h4>
+    </div>
+</div>
 <div id="chartdiv6" style="width:100% ;height:500px"></div>
+<div class="container wow fadeInUp">
+    <div class="section-header"> <br> <br>
+        <h4>Wataniya Logo in 2015 </h4>
+    </div>
+</div>
 <div id="chartdiv7" style="width:100% ;height:500px"></div>
+<div class="container wow fadeInUp">
+    <div class="section-header"> <br> <br>
+        <h4>Wataniya Logo in 2016 </h4>
+    </div>
+</div>
 <div id="chartdiv8" style="width:100% ;height:500px"></div>
+<div class="container wow fadeInUp">
+    <div class="section-header"> <br> <br>
+        <h4>Wataniya Logo in 2017 </h4>
+    </div>
+</div>
 <div id="chartdiv9" style="width:100% ;height:500px"></div>
+<div class="container wow fadeInUp">
+    <div class="section-header"> <br> <br>
+        <h4>Wataniya Logo in 2018 </h4>
+    </div>
+</div>
 <div id="chartdiv10" style="width:100% ;height:500px"></div>
 
 <!--==========================
